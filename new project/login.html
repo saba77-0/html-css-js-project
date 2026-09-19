@@ -1,0 +1,92 @@
+.
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - STEP BOOKING</title>
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="login-container">
+    <div class="left-hero">
+      <div class="hero-content">
+        <div class="hero-icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          </svg>
+        </div>
+        <h1 class="brand-title">STEP BOOKING</h1>
+        <p class="brand-description">
+          Access exclusive hotel deals and manage your bookings with your account.
+        </p>
+
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">50K+</div>
+            <div class="stat-label">BOOKINGS</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">200+</div>
+            <div class="stat-label">HOTELS</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">GUEST SUPPORT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-form-section">
+      <div class="form-wrapper">
+        <div class="login-header-icon">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i>
+        </div>
+        
+        <h2 class="welcome-title">Welcome Back</h2>
+        <p class="welcome-subtitle">Sign in to manage your bookings 🏨</p>
+
+        <div id="errorMessage" class="error-message hidden"></div>
+
+        <form id="loginForm" class="login-form">
+          <div class="input-group">
+            <i class="fa-regular fa-envelope input-icon"></i>
+            <input type="email" id="emailInput" placeholder="Email address" required autocomplete="email">
+          </div>
+
+          <div class="input-group">
+            <i class="fa-solid fa-lock input-icon"></i>
+            <input type="password" id="passwordInput" placeholder="Password" required autocomplete="current-password">
+          </div>
+
+          <div class="form-options">
+            <label class="custom-checkbox">
+              <input type="checkbox" id="rememberMe">
+              <span class="checkmark"></span>
+              <span class="checkbox-label">Remember me</span>
+            </label>
+            <a href="forgot-password.html" class="forgot-link">Forgot password?</a>
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn-signin">
+            <span>Sign In</span>
+          </button>
+        </form>
+
+        <div class="divider">
+          <span>or</span>
+        </div>
+
+        <div class="signup-prompt">
+          Don't have an account? <a href="register.html" class="create-link">Create one now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>

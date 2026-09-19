@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEP BOOKING</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index1.html" class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="font-icon">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+        <span>STEP BOOKING</span>
+      </a>
+      <a href="./login.html" id="signInBtn" class="btn btn-primary btn-sm">Sign In</a>
+    </div>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-container">
+      <h1 class="hero-title">Find your perfect stay</h1>
+      <p class="hero-subtitle">Discover and book hotels worldwide with ease</p>
+      
+      <div class="search-box">
+        <div class="search-input-wrapper">
+          <input type="text" id="searchInput" placeholder="Search hotels by name..." autocomplete="off">
+        </div>
+        <button id="searchBtn" class="btn btn-primary">Search</button>
+      </div>
+    </div>
+  </section>
+
+  <main class="main-content">
+    <div class="section-header">
+      <h2 class="section-title">Explore Hotels</h2>
+      <button id="filterToggleBtn" class="filter-toggle-btn">
+        <i class="fa-solid fa-sliders"></i>
+        <span>Filters</span>
+      </button>
+    </div>
+
+    <div id="filterPanel" class="filter-panel hidden">
+      <div class="filter-grid">
+        <div class="filter-group">
+          <label for="countryFilter">COUNTRY</label>
+          <select id="countryFilter">
+            <option value="">All Countries</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Default">Default</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="cityFilter">CITY</label>
+          <select id="cityFilter">
+            <option value="">All Cities</option>
+            <option value="Batumi">Batumi</option>
+            <option value="Borjomi">Borjomi</option>
+            <option value="Kvareli">Kvareli</option>
+            <option value="Sighnaghi">Sighnaghi</option>
+            <option value="Tbilisi">Tbilisi</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="starsFilter">MIN STARS</label>
+          <select id="starsFilter">
+            <option value="">Any</option>
+            <option value="1">1 ★</option>
+            <option value="2">2 ★</option>
+            <option value="3">3 ★</option>
+            <option value="4">4 ★</option>
+            <option value="5">5 ★</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="ratingFilter">MIN RATING</label>
+          <select id="ratingFilter">
+            <option value="">Any</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="sortBy">SORT BY</label>
+          <select id="sortBy">
+            <option value="default">Default</option>
+            <option value="name">Name</option>
+            <option value="stars">Star Rating</option>
+            <option value="rating">Rating</option>
+            <option value="reviews">Review Count</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div id="hotelsGrid" class="hotels-grid"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <a href="https://ge.itstep.org" target="_blank" class="footer-link">Created by IT STEP Academy Georgia</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const token = localStorage.getItem("token");
+
+      if (token) {
+        const firstName = localStorage.getItem("userFirstName") || "User";
+        const lastName = localStorage.getItem("userLastName") || "";
+        
+        const firstLetter = firstName.charAt(0).toUpperCase();
+        const lastLetter = lastName ? lastName.charAt(0).toUpperCase() : "";
+        const initials = (firstLetter + lastLetter) || "U";
+
+        const signInBtn = document.getElementById("signInBtn") || document.querySelector(".btn-primary");
+
+        if (signInBtn) {
+          const avatarBtn = document.createElement("div");
+          avatarBtn.className = "user-avatar-circle";
+          avatarBtn.textContent = initials;
+          avatarBtn.style.cursor = "pointer";
+          avatarBtn.title = "გადადით პროფილზე";
+
+          avatarBtn.addEventListener("click", () => {
+            window.location.href = "profile.html";
+          });
+
+          signInBtn.replaceWith(avatarBtn);
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
